@@ -1,0 +1,17 @@
+{
+    "builds": [{
+        "src": "oh320project/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "oh320project/wsgi.py",
+            "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+            "headers": {
+              "Access-Control-Allow-Origin": "*"
+            }
+        }
+    ]
+}
